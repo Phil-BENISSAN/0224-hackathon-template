@@ -32,8 +32,8 @@ RUN apt-get autoremove -y && apt-get clean && rm -rf /var/lib/apt/lists/* \ /var
 # ______________________________________________________________________________________________________________________
 
 
-# Exposer le port utilisé par FastAPI
-EXPOSE 8000
+# Exposer le port utilisé par Dash
+EXPOSE 8050
 
 # Lancer l'application FastAPI
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "./app/main.py", "--host", "0.0.0.0", "--port", "8050"]
