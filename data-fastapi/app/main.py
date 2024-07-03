@@ -8,7 +8,7 @@ def fn_fast_api():
 
 # -------  INSERER VOTRE CODE ICI -----------------
 
-    return {'key' : 'value'}
+    return {'key' : 'values'}
 
 
 # ---------------- FIN DE TON CODE ----------------
