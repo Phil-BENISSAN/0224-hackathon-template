@@ -12,13 +12,13 @@ services:
     build: 
       context: ./data-fastapi
       dockerfile : Dockerfile
-    ports:
-      - "8000:8000"
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
     volumes:
       - ./data-fastapi:/app           # Monte le répertoire de travail dans le conteneur
-    environment:
-      - PYTHONUNBUFFERED=1
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"      
+    restart: on-failure
+
 
   # SERVICE STREAMLIT 
   streamlit:
