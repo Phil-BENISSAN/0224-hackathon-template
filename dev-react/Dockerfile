@@ -19,8 +19,10 @@ COPY . .
 
 EXPOSE 8080
 
-# Commande pour démarrer vite
+# Commande pour démarrer vite 
 CMD [ "npm", "run", "dev" ]
+
+
 
 # This should be good enough to run our development environment. 
 # But for serving the build, we need to change it a bit(look for the newer version).
