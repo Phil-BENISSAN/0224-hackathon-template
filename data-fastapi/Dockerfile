@@ -11,7 +11,7 @@ COPY requirements.txt .
 
 
 # ETAPE 3 : INSTALLATION DES DEPENDANCES & MISE A JOUR DES PACKAGES
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
     # Bonne pratique : commandes RUN combinées 
 RUN apt-get update && apt-get install -y 
@@ -38,4 +38,8 @@ COPY . .
 EXPOSE 8000
 
 # Lancer l'application FastAPI
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Utiliser entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
